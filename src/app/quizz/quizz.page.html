@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>quizz</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="counter < 5">
+    <ion-card-header>
+      <ion-card-title>{{counter+1}} - {{questions.question}}</ion-card-title>
+      <ion-img src={{questions.img}}></ion-img>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item (click)=hasClicked(questions.r1)>{{questions.r1}}</ion-item>
+        <ion-item (click)=hasClicked(questions.r2)>{{questions.r2}}</ion-item>
+        <ion-item (click)=hasClicked(questions.r3)>{{questions.r3}}</ion-item>
+        <ion-item (click)=hasClicked(questions.r4)>{{questions.r4}}</ion-item>
+      </ion-list>
+    </ion-card-content>
+    <div *ngIf="click==true">
+      <p *ngIf="questions.correction==response">bonne réponse!</p>
+      <p *ngIf="questions.correction!=response">La réponse était: {{questions.correction}}</p>
+      <ion-button align-items-end (click)=nextQuestion()>question suivante</ion-button>
+    </div>
+  </ion-card>
+  <ion-card *ngIf="counter >= 5">
+    <ion-card-header>
+      <ion-card-title>Vous avez terminé le quiz!</ion-card-title>
+      <ion-button href="home">retour à l'accueil</ion-button>
+    </ion-card-header>
+  </ion-card>
+</ion-content>

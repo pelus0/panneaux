@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref="pannneaux"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{data.nom}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="data">
+    <ion-card-header>
+      <ion-img src={{data.img}}></ion-img>
+      <ion-card-title>{{data.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Description du panneau: {{data.description}}</p>
+      <p>Catégorie: {{data.categorie.nom}}</p>
+      <p>Descritpion de la catégorie: {{data.categorie.description}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

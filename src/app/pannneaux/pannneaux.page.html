@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>panneaux</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid *ngIf="cat">
+    <ion-row align-items-start>
+      <ion-col align-self-end size="4" *ngFor="let panneau of panneaux" (click)="openDetailsWithState(panneau)">
+        <ion-img src={{panneau.img}} *ngIf="cat==panneau.categorie"></ion-img>
+        <h6 align-self-center *ngIf="cat==panneau.categorie">{{panneau.nom}}</h6>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngIf="cat==null">
+    <ion-row align-items-start>
+      <ion-col align-self-end size="4" *ngFor="let panneau of panneaux" (click)="openDetailsWithState(panneau)">
+          <ion-img src={{panneau.img}}></ion-img>
+          <h6 align-self-center>{{panneau.nom}}</h6>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

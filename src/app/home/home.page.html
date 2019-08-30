@@ -1,14 +1,22 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Accueil
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-grid>
+    <ion-row align-items-start>
+      <ion-col align-self-end size="6">
+        <ion-button expand="full" href="/pannneaux">panneaux</ion-button>
+        <ion-button expand="full" href="/categories">categories</ion-button>
+      </ion-col>
+      <ion-col align-self-start size="6">
+        <ion-button expand="full" href="/quizz">quizz</ion-button>
+        <ion-button expand="full" href="/preferences">preferences</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
