@@ -8,7 +8,17 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngIf="counter < 5">
+  <ion-card *ngIf="start == false">
+    <ion-card-header>
+      <ion-card-title>QUIZ</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Ce quiz va tester vos connaissances sur les panneaux.
+      <p>score précédent: {{LastScore}}/5</p>
+    </ion-card-content>
+      <ion-button align-items-end (click)=startQuiz()>Démarrer le Quiz</ion-button>
+  </ion-card>
+  <ion-card *ngIf="counter < 5 && start">
     <ion-card-header>
       <ion-card-title>{{counter+1}} - {{questions.question}}</ion-card-title>
       <ion-img src={{questions.img}}></ion-img>
@@ -22,7 +32,7 @@
       </ion-list>
     </ion-card-content>
     <div *ngIf="click==true">
-      <p *ngIf="questions.correction==response">bonne réponse!</p>
+      <p *ngIf="questions.correction==response">bonne réponse! {{bonnerep()}}</p>
       <p *ngIf="questions.correction!=response">La réponse était: {{questions.correction}}</p>
       <ion-button align-items-end (click)=nextQuestion()>question suivante</ion-button>
     </div>
@@ -30,7 +40,7 @@
   <ion-card *ngIf="counter >= 5">
     <ion-card-header>
       <ion-card-title>Vous avez terminé le quiz!</ion-card-title>
-      <ion-button href="home">retour à l'accueil</ion-button>
+      <ion-button href="home" (click)="setLastScore()">retour à l'accueil</ion-button>
     </ion-card-header>
   </ion-card>
 </ion-content>

@@ -1,5 +1,7 @@
 {
   "name": "panneaux",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
