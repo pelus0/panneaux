@@ -1,7 +1,8 @@
 {
   "name": "panneaux",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular"
 }
